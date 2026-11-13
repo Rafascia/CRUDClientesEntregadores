@@ -32,5 +32,11 @@ namespace CRUDClientesEntregadores
         {
             //SO TA AK PQ EU CLIQUEI ERRADO
         }
+
+        private void eNTREGADORESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmEntregadores TelaEntregadores = new FrmEntregadores();
+            TelaEntregadores.ShowDialog();
+        }
     }
 }

@@ -1,0 +1,141 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace CRUDClientesEntregadores
+{
+    public partial class FrmEntregadores : Form
+    {
+        public FrmEntregadores()
+        {
+            InitializeComponent();
+        }
+
+        Entregador objEntregador = new Entregador();
+
+        private void FrmEntregadores_Load(object sender, EventArgs e)
+        {
+            MostrarDadosEntregadores();
+        }
+        private void MostrarDadosEntregadores()
+        {
+            dtgEntregadores.DataSource = objEntregador.ListarEntregadores(); //Preenche o DataGridView com os dados retornados do select
+            dtgEntregadores.Columns["Rating"].Visible = false;
+        }
+        private void LimparDados()
+        {
+            txtID.Clear();
+            txtNome.Clear();
+            txtEmail.Clear();
+            txtSenha.Clear();
+            txtTelefone.Clear();
+            txtEndereco.Clear();
+            txtPlaca.Clear();
+            txtTipoVeiculo.Clear();
+            chkAtivo.Checked = false;
+        }
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            //1º armazenar em variaveis os valores preenchidos no formulario de entregadores
+            string nomeEntregador = txtNome.Text;
+            string EmailEntregador = txtEmail.Text;
+            string SenhaEntregador = txtSenha.Text;
+            string telefoneEntregador = txtTelefone.Text;
+            string EnderecoEntregador = txtEndereco.Text;
+            string PlacaEntregador = txtPlaca.Text;
+            string TipoVeiculoEntregador = txtTipoVeiculo.Text;
+            bool AtivoEntregador = chkAtivo.Checked;
+
+            //2º atribuir os valores armazenados em variaveis aos atributos da classe, usando metodo set 
+            objEntregador.SetNome(nomeEntregador);
+            objEntregador.SetEmail(EmailEntregador);
+            objEntregador.SetSenha(SenhaEntregador);
+            objEntregador.SetTelefone(telefoneEntregador);
+            objEntregador.SetEndereco(EnderecoEntregador);
+            objEntregador.SetPlaca(PlacaEntregador);
+            objEntregador.SetTipoVeiculo(TipoVeiculoEntregador);
+            objEntregador.SetAtivo(AtivoEntregador);
+
+            //3º 
+
+            objEntregador.InserirEntregador();
+            MostrarDadosEntregadores();
+            MessageBox.Show("Dados cadastrados com sucesso");
+
+            LimparDados();
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            //1º armazenar em variaveis os valores preenchidos no formulario de entregadores
+            int idEntregador = int.Parse(txtID.Text);
+            string nomeEntregador = txtNome.Text;
+            string EmailEntregador = txtEmail.Text;
+            string SenhaEntregador = txtSenha.Text;
+            string telefoneEntregador = txtTelefone.Text;
+            string EnderecoEntregador = txtEndereco.Text;
+            string PlacaEntregador = txtPlaca.Text;
+            string TipoVeiculoEntregador = txtTipoVeiculo.Text;
+            bool AtivoEntregador = chkAtivo.Checked;
+
+            //2º atribuir os valores armazenados em variaveis aos atributos da classe, usando metodo set 
+            objEntregador.SetId(idEntregador);
+            objEntregador.SetNome(nomeEntregador);
+            objEntregador.SetEmail(EmailEntregador);
+            objEntregador.SetSenha(SenhaEntregador);
+            objEntregador.SetTelefone(telefoneEntregador);
+            objEntregador.SetEndereco(EnderecoEntregador);
+            objEntregador.SetPlaca(PlacaEntregador);
+            objEntregador.SetTipoVeiculo(TipoVeiculoEntregador);
+            objEntregador.SetAtivo(AtivoEntregador);
+
+            //3º 
+
+            objEntregador.AlterarEntregador();
+            MostrarDadosEntregadores();
+            MessageBox.Show("Dados alterados com sucesso");
+
+            LimparDados();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            int idEntregador = int.Parse(txtID.Text);
+            objEntregador.SetId(idEntregador);
+            objEntregador.ExcluirEntregador();
+            MessageBox.Show("Dados excluidos com sucesso");
+            MostrarDadosEntregadores();
+            LimparDados();
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            LimparDados();
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dtgEntregadores_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            txtID.Text = dtgEntregadores.Rows[e.RowIndex].Cells["UserID"].Value.ToString();
+            txtNome.Text = dtgEntregadores.Rows[e.RowIndex].Cells["FullName"].Value.ToString();
+            txtEmail.Text = dtgEntregadores.Rows[e.RowIndex].Cells["Email"].Value.ToString();
+            txtSenha.Text = dtgEntregadores.Rows[e.RowIndex].Cells["PasswordHash"].Value.ToString();
+            txtTelefone.Text = dtgEntregadores.Rows[e.RowIndex].Cells["PhoneNumber"].Value.ToString();
+            txtEndereco.Text = dtgEntregadores.Rows[e.RowIndex].Cells["Address"].Value.ToString();
+            txtPlaca.Text = dtgEntregadores.Rows[e.RowIndex].Cells["VehicleNumber"].Value.ToString();
+            txtTipoVeiculo.Text = dtgEntregadores.Rows[e.RowIndex].Cells["VehicleType"].Value.ToString();
+            chkAtivo.Checked = Convert.ToBoolean(dtgEntregadores.Rows[e.RowIndex].Cells["IsActive"].Value);
+        }
+    }
+}

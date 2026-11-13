@@ -61,6 +61,7 @@
             this.eNTREGADORESToolStripMenuItem.Name = "eNTREGADORESToolStripMenuItem";
             this.eNTREGADORESToolStripMenuItem.Size = new System.Drawing.Size(160, 29);
             this.eNTREGADORESToolStripMenuItem.Text = "ENTREGADORES";
+            this.eNTREGADORESToolStripMenuItem.Click += new System.EventHandler(this.eNTREGADORESToolStripMenuItem_Click);
             // 
             // sAIRToolStripMenuItem
             // 

@@ -112,6 +112,7 @@ namespace CRUDClientesEntregadores
 
         private void dtgClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0) return;
             txtID.Text = dtgClientes.Rows[e.RowIndex].Cells["UserID"].Value.ToString();
             txtNome.Text = dtgClientes.Rows[e.RowIndex].Cells["FullName"].Value.ToString();
             txtEmail.Text = dtgClientes.Rows[e.RowIndex].Cells["Email"].Value.ToString();

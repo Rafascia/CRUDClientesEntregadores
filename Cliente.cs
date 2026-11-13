@@ -38,7 +38,7 @@ namespace CRUDClientesEntregadores
         public void SetEndereco(string endereco)
         {
             this.endereco = endereco;
-        }
+        } 
 
         //GETS
         public int GetId()

@@ -1,0 +1,10 @@
+{
+  "NomeCompleto": "João Souza",
+  "EmailUsuario": "joao@teste.com",
+  "PasswordUsuario": "123",
+  "UserTelNumber": "(31) 98888-0000",
+  "UserAdress": "Rua B, 20",
+  "UserType": "DeliveryPartner",
+  "VehicleType": "Moto",
+  "VehiclePlate": "ABC1D23"
+}

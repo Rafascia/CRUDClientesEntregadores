@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;         // para ler o arquivo
+using Newtonsoft.Json;   // para converter o JSON
 
 namespace CRUDClientesEntregadores
 {
@@ -119,6 +121,44 @@ namespace CRUDClientesEntregadores
             txtSenha.Text = dtgClientes.Rows[e.RowIndex].Cells["PasswordHash"].Value.ToString();
             txtTelefone.Text = dtgClientes.Rows[e.RowIndex].Cells["PhoneNumber"].Value.ToString();
             txtEndereco.Text = dtgClientes.Rows[e.RowIndex].Cells["Address"].Value.ToString();
+        }
+
+        private void btnImportar_Click(object sender, EventArgs e)
+        {
+            //1º abrir a janela para escolher o arquivo
+            OpenFileDialog abrirArquivo = new OpenFileDialog();
+            abrirArquivo.Filter = "Arquivos JSON (*.json)|*.json";
+            if (abrirArquivo.ShowDialog() != DialogResult.OK) return; //cancelou
+
+            try
+            {
+                //2º ler o arquivo e converter o JSON para a classe UsuarioJson
+                string conteudo = File.ReadAllText(abrirArquivo.FileName);
+                UsuarioJson usuario = JsonConvert.DeserializeObject<UsuarioJson>(conteudo);
+
+                //3º conferir se é mesmo um cliente
+                if (usuario.UserType != "NormalUser")
+                {
+                    MessageBox.Show("Este arquivo não é de um cliente. Importe na tela de Entregadores.");
+                    return;
+                }
+
+                //4º passar os dados para o objeto, igual ao botão Cadastrar
+                objCliente.SetNome(usuario.NomeCompleto);
+                objCliente.SetEmail(usuario.EmailUsuario);
+                objCliente.SetSenha(usuario.PasswordUsuario);
+                objCliente.SetTelefone(usuario.UserTelNumber);
+                objCliente.SetEndereco(usuario.UserAdress);
+
+                //5º salvar no banco e atualizar a tela
+                objCliente.InserirCliente();
+                MostrarDadosClientes();
+                MessageBox.Show("Cadastro importado com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao importar o arquivo:\n" + ex.Message);
+            }
         }
     }
 }

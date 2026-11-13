@@ -46,6 +46,7 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
+            this.btnImportar = new System.Windows.Forms.Button();
             this.dtgClientes = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgClientes)).BeginInit();
@@ -167,7 +168,7 @@
             this.btnCadastrar.Location = new System.Drawing.Point(705, 18);
             this.btnCadastrar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(180, 49);
+            this.btnCadastrar.Size = new System.Drawing.Size(180, 46);
             this.btnCadastrar.TabIndex = 12;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
@@ -175,10 +176,10 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(705, 80);
+            this.btnAlterar.Location = new System.Drawing.Point(705, 72);
             this.btnAlterar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(180, 49);
+            this.btnAlterar.Size = new System.Drawing.Size(180, 46);
             this.btnAlterar.TabIndex = 13;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
@@ -186,10 +187,10 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(705, 142);
+            this.btnExcluir.Location = new System.Drawing.Point(705, 126);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(180, 49);
+            this.btnExcluir.Size = new System.Drawing.Size(180, 46);
             this.btnExcluir.TabIndex = 14;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -197,10 +198,10 @@
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(705, 203);
+            this.btnLimpar.Location = new System.Drawing.Point(705, 180);
             this.btnLimpar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(180, 49);
+            this.btnLimpar.Size = new System.Drawing.Size(180, 46);
             this.btnLimpar.TabIndex = 15;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
@@ -208,14 +209,25 @@
             // 
             // btnSair
             // 
-            this.btnSair.Location = new System.Drawing.Point(705, 265);
+            this.btnSair.Location = new System.Drawing.Point(705, 234);
             this.btnSair.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(180, 49);
+            this.btnSair.Size = new System.Drawing.Size(180, 46);
             this.btnSair.TabIndex = 16;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // btnImportar
+            // 
+            this.btnImportar.Location = new System.Drawing.Point(705, 288);
+            this.btnImportar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnImportar.Name = "btnImportar";
+            this.btnImportar.Size = new System.Drawing.Size(180, 46);
+            this.btnImportar.TabIndex = 19;
+            this.btnImportar.Text = "Importar JSON";
+            this.btnImportar.UseVisualStyleBackColor = true;
+            this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
             // 
             // dtgClientes
             // 
@@ -248,6 +260,7 @@
             this.ClientSize = new System.Drawing.Size(1152, 721);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dtgClientes);
+            this.Controls.Add(this.btnImportar);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnExcluir);
@@ -298,6 +311,7 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.Button btnImportar;
         private System.Windows.Forms.DataGridView dtgClientes;
         private System.Windows.Forms.PictureBox pictureBox1;
     }

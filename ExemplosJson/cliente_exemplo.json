@@ -1,0 +1,8 @@
+{
+  "NomeCompleto": "Maria Silva",
+  "EmailUsuario": "maria@teste.com",
+  "PasswordUsuario": "123",
+  "UserTelNumber": "(31) 99999-0000",
+  "UserAdress": "Rua A, 10",
+  "UserType": "NormalUser"
+}

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;         // para ler o arquivo
+using Newtonsoft.Json;   // para converter o JSON
 
 namespace CRUDClientesEntregadores
 {
@@ -42,7 +44,7 @@ namespace CRUDClientesEntregadores
         }
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            //1� armazenar em variaveis os valores preenchidos no formulario de entregadores
+            //1º armazenar em variaveis os valores preenchidos no formulario de entregadores
             string nomeEntregador = txtNome.Text;
             string EmailEntregador = txtEmail.Text;
             string SenhaEntregador = txtSenha.Text;
@@ -52,7 +54,7 @@ namespace CRUDClientesEntregadores
             string TipoVeiculoEntregador = txtTipoVeiculo.Text;
             bool AtivoEntregador = chkAtivo.Checked;
 
-            //2� atribuir os valores armazenados em variaveis aos atributos da classe, usando metodo set 
+            //2º atribuir os valores armazenados em variaveis aos atributos da classe, usando metodo set 
             objEntregador.SetNome(nomeEntregador);
             objEntregador.SetEmail(EmailEntregador);
             objEntregador.SetSenha(SenhaEntregador);
@@ -62,7 +64,7 @@ namespace CRUDClientesEntregadores
             objEntregador.SetTipoVeiculo(TipoVeiculoEntregador);
             objEntregador.SetAtivo(AtivoEntregador);
 
-            //3� 
+            //3º 
 
             objEntregador.InserirEntregador();
             MostrarDadosEntregadores();
@@ -73,7 +75,7 @@ namespace CRUDClientesEntregadores
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            //1� armazenar em variaveis os valores preenchidos no formulario de entregadores
+            //1º armazenar em variaveis os valores preenchidos no formulario de entregadores
             int idEntregador = int.Parse(txtID.Text);
             string nomeEntregador = txtNome.Text;
             string EmailEntregador = txtEmail.Text;
@@ -84,7 +86,7 @@ namespace CRUDClientesEntregadores
             string TipoVeiculoEntregador = txtTipoVeiculo.Text;
             bool AtivoEntregador = chkAtivo.Checked;
 
-            //2� atribuir os valores armazenados em variaveis aos atributos da classe, usando metodo set 
+            //2º atribuir os valores armazenados em variaveis aos atributos da classe, usando metodo set 
             objEntregador.SetId(idEntregador);
             objEntregador.SetNome(nomeEntregador);
             objEntregador.SetEmail(EmailEntregador);
@@ -95,7 +97,7 @@ namespace CRUDClientesEntregadores
             objEntregador.SetTipoVeiculo(TipoVeiculoEntregador);
             objEntregador.SetAtivo(AtivoEntregador);
 
-            //3� 
+            //3º 
 
             objEntregador.AlterarEntregador();
             MostrarDadosEntregadores();
@@ -136,6 +138,47 @@ namespace CRUDClientesEntregadores
             txtPlaca.Text = dtgEntregadores.Rows[e.RowIndex].Cells["VehicleNumber"].Value.ToString();
             txtTipoVeiculo.Text = dtgEntregadores.Rows[e.RowIndex].Cells["VehicleType"].Value.ToString();
             chkAtivo.Checked = Convert.ToBoolean(dtgEntregadores.Rows[e.RowIndex].Cells["IsActive"].Value);
+        }
+
+        private void btnImportar_Click(object sender, EventArgs e)
+        {
+            //1º abrir a janela para escolher o arquivo
+            OpenFileDialog abrirArquivo = new OpenFileDialog();
+            abrirArquivo.Filter = "Arquivos JSON (*.json)|*.json";
+            if (abrirArquivo.ShowDialog() != DialogResult.OK) return; //cancelou
+
+            try
+            {
+                //2º ler o arquivo e converter o JSON para a classe UsuarioJson
+                string conteudo = File.ReadAllText(abrirArquivo.FileName);
+                UsuarioJson usuario = JsonConvert.DeserializeObject<UsuarioJson>(conteudo);
+
+                //3º conferir se é mesmo um entregador
+                if (usuario.UserType != "DeliveryPartner")
+                {
+                    MessageBox.Show("Este arquivo não é de um entregador. Importe na tela de Clientes.");
+                    return;
+                }
+
+                //4º passar os dados para o objeto, igual ao botão Cadastrar
+                objEntregador.SetNome(usuario.NomeCompleto);
+                objEntregador.SetEmail(usuario.EmailUsuario);
+                objEntregador.SetSenha(usuario.PasswordUsuario);
+                objEntregador.SetTelefone(usuario.UserTelNumber);
+                objEntregador.SetEndereco(usuario.UserAdress);
+                objEntregador.SetTipoVeiculo(usuario.VehicleType);
+                objEntregador.SetPlaca(usuario.VehiclePlate);
+                objEntregador.SetAtivo(true); //todo entregador novo começa ativo
+
+                //5º salvar no banco e atualizar a tela
+                objEntregador.InserirEntregador();
+                MostrarDadosEntregadores();
+                MessageBox.Show("Cadastro importado com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao importar o arquivo:\n" + ex.Message);
+            }
         }
     }
 }

@@ -38,5 +38,11 @@ namespace CRUDClientesEntregadores
             FrmEntregadores TelaEntregadores = new FrmEntregadores();
             TelaEntregadores.ShowDialog();
         }
+
+        private void pRODUTOSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmProdutos TelaProdutos = new FrmProdutos();
+            TelaProdutos.ShowDialog();
+        }
     }
 }

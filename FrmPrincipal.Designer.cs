@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cLIENTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eNTREGADORESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pRODUTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sAIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -42,6 +43,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cLIENTESToolStripMenuItem,
             this.eNTREGADORESToolStripMenuItem,
+            this.pRODUTOSToolStripMenuItem,
             this.sAIRToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -62,7 +64,14 @@
             this.eNTREGADORESToolStripMenuItem.Size = new System.Drawing.Size(160, 29);
             this.eNTREGADORESToolStripMenuItem.Text = "ENTREGADORES";
             this.eNTREGADORESToolStripMenuItem.Click += new System.EventHandler(this.eNTREGADORESToolStripMenuItem_Click);
-            // 
+            //
+            // pRODUTOSToolStripMenuItem
+            //
+            this.pRODUTOSToolStripMenuItem.Name = "pRODUTOSToolStripMenuItem";
+            this.pRODUTOSToolStripMenuItem.Size = new System.Drawing.Size(114, 29);
+            this.pRODUTOSToolStripMenuItem.Text = "PRODUTOS";
+            this.pRODUTOSToolStripMenuItem.Click += new System.EventHandler(this.pRODUTOSToolStripMenuItem_Click);
+            //
             // sAIRToolStripMenuItem
             // 
             this.sAIRToolStripMenuItem.Name = "sAIRToolStripMenuItem";
@@ -92,6 +101,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem cLIENTESToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eNTREGADORESToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pRODUTOSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sAIRToolStripMenuItem;
     }
 }

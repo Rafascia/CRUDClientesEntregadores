@@ -1,0 +1,12 @@
+{
+  "NomeCompleto": "Ana Costa",
+  "EmailUsuario": "ana@teste.com",
+  "PasswordUsuario": "123",
+  "UserTelNumber": "(31) 96666-4321",
+  "UserAdress": "Rua da Bahia, 1200",
+  "UserType": "DeliveryPartner",
+  "VehicleType": "Bicicleta",
+  "VehicleNumber": "Sem placa",
+  "Rating": 5,
+  "IsActive": true
+}

@@ -1,0 +1,22 @@
+{
+  "EmailUsuario": "carlos@teste.com",
+  "DataPedido": "2026-11-15 12:45:00",
+  "Itens": [
+    {
+      "ItemID": 3,
+      "Quantidade": 3,
+      "PrecoUnitario": 12.99
+    },
+    {
+      "ItemID": 6,
+      "Quantidade": 1,
+      "PrecoUnitario": 45.99
+    },
+    {
+      "ItemID": 10,
+      "Quantidade": 2,
+      "PrecoUnitario": 20.99
+    }
+  ],
+  "Total": 126.94
+}

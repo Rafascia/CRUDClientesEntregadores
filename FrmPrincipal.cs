@@ -17,13 +17,13 @@ namespace CRUDClientesEntregadores
             InitializeComponent();
         }
 
-        private void cLIENTESToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnClientes_Click(object sender, EventArgs e)
         {
             FrmClientes TelaClientes = new FrmClientes();
             TelaClientes.ShowDialog();
         }
 
-        private void sAIRToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnSair_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -33,19 +33,19 @@ namespace CRUDClientesEntregadores
             //SO TA AK PQ EU CLIQUEI ERRADO
         }
 
-        private void eNTREGADORESToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnEntregadores_Click(object sender, EventArgs e)
         {
             FrmEntregadores TelaEntregadores = new FrmEntregadores();
             TelaEntregadores.ShowDialog();
         }
 
-        private void pRODUTOSToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnProdutos_Click(object sender, EventArgs e)
         {
             FrmProdutos TelaProdutos = new FrmProdutos();
             TelaProdutos.ShowDialog();
         }
 
-        private void pEDIDOSToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnPedidos_Click(object sender, EventArgs e)
         {
             FrmPedidos TelaPedidos = new FrmPedidos();
             TelaPedidos.ShowDialog();

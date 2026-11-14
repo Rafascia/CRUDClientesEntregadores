@@ -74,6 +74,7 @@ namespace CRUDClientesEntregadores
             txtTotal.Clear();
             cboStatus.SelectedIndex = -1;
             cboEntregador.SelectedIndex = -1;
+            dtgItens.DataSource = null;
         }
 
         private void FrmPedidos_Load(object sender, EventArgs e)
@@ -148,6 +149,9 @@ namespace CRUDClientesEntregadores
             {
                 cboEntregador.SelectedValue = Convert.ToInt32(dtgPedidos.Rows[e.RowIndex].Cells["DeliveryPartnerID"].Value);
             }
+
+            objPedido.SetId(int.Parse(txtID.Text));
+            dtgItens.DataSource = objPedido.ListarItens();
         }
     }
 }

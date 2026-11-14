@@ -48,6 +48,9 @@ namespace CRUDClientesEntregadores
             this.btnImportar = new System.Windows.Forms.Button();
             this.dtgPedidos = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblItens = new System.Windows.Forms.Label();
+            this.dtgItens = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgItens)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgPedidos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -236,7 +239,7 @@ namespace CRUDClientesEntregadores
             this.dtgPedidos.Name = "dtgPedidos";
             this.dtgPedidos.RowHeadersVisible = false;
             this.dtgPedidos.RowHeadersWidth = 62;
-            this.dtgPedidos.Size = new System.Drawing.Size(1121, 300);
+            this.dtgPedidos.Size = new System.Drawing.Size(690, 300);
             this.dtgPedidos.TabIndex = 17;
             this.dtgPedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgPedidos_CellClick);
             // 
@@ -249,12 +252,38 @@ namespace CRUDClientesEntregadores
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
+            //
+            // lblItens
+            //
+            this.lblItens.AutoSize = true;
+            this.lblItens.Location = new System.Drawing.Point(726, 329);
+            this.lblItens.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblItens.Name = "lblItens";
+            this.lblItens.Size = new System.Drawing.Size(126, 20);
+            this.lblItens.TabIndex = 19;
+            this.lblItens.Text = "Itens do pedido:";
+            //
+            // dtgItens
+            //
+            this.dtgItens.AllowUserToAddRows = false;
+            this.dtgItens.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtgItens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgItens.Location = new System.Drawing.Point(726, 354);
+            this.dtgItens.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtgItens.Name = "dtgItens";
+            this.dtgItens.ReadOnly = true;
+            this.dtgItens.RowHeadersVisible = false;
+            this.dtgItens.RowHeadersWidth = 62;
+            this.dtgItens.Size = new System.Drawing.Size(413, 300);
+            this.dtgItens.TabIndex = 20;
             // 
             // FrmPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 721);
+            this.Controls.Add(this.dtgItens);
+            this.Controls.Add(this.lblItens);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dtgPedidos);
             this.Controls.Add(this.btnImportar);
@@ -283,6 +312,7 @@ namespace CRUDClientesEntregadores
             this.Load += new System.EventHandler(this.FrmPedidos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgPedidos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgItens)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -309,5 +339,7 @@ namespace CRUDClientesEntregadores
         private System.Windows.Forms.Button btnImportar;
         private System.Windows.Forms.DataGridView dtgPedidos;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblItens;
+        private System.Windows.Forms.DataGridView dtgItens;
     }
 }

@@ -94,5 +94,12 @@ namespace CRUDClientesEntregadores
                               "WHERE d.IsActive = true ORDER BY u.FullName";
             return db.ExecutarConsulta(consulta);
         }
+
+        public DataTable ListarItens()
+        {
+            string consulta = "SELECT m.Name AS Produto, d.Quantity AS Qtd, d.Subtotal FROM OrderDetails d " +
+                              $"INNER JOIN MenuItems m ON d.ItemID = m.ItemID WHERE d.OrderID = {id}";
+            return db.ExecutarConsulta(consulta);
+        }
     }
 }

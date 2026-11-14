@@ -28,7 +28,6 @@ namespace CRUDClientesEntregadores
         private void MostrarDadosEntregadores()
         {
             dtgEntregadores.DataSource = objEntregador.ListarEntregadores(); //Preenche o DataGridView com os dados retornados do select
-            dtgEntregadores.Columns["Rating"].Visible = false;
         }
         private void LimparDados()
         {

@@ -11,6 +11,7 @@ namespace CRUDClientesEntregadores
     {
         private int id;
         private string nome, email, senha, telefone, endereco, tipoVeiculo, placa;
+        private double avaliacao;
         private bool ativo;
 
         //SETS
@@ -54,6 +55,11 @@ namespace CRUDClientesEntregadores
             this.placa = placa;
         }
 
+        public void SetAvaliacao(double avaliacao)
+        {
+            this.avaliacao = avaliacao;
+        }
+
         public void SetAtivo(bool ativo)
         {
             this.ativo = ativo;
@@ -92,6 +98,10 @@ namespace CRUDClientesEntregadores
         {
             return this.placa;
         }
+        public double GetAvaliacao()
+        {
+            return this.avaliacao;
+        }
         public bool GetAtivo()
         {
             return this.ativo;
@@ -103,7 +113,7 @@ namespace CRUDClientesEntregadores
         public void InserirEntregador()
         {
             string inserir = $"INSERT INTO Users VALUES(null, '{nome}', '{email}', '{senha}', '{telefone}', '{endereco}', 'DeliveryPartner', NOW()); " +
-                             $"INSERT INTO DeliveryPartners VALUES(null, LAST_INSERT_ID(), '{tipoVeiculo}', '{placa}', null, {ativo});";
+                             $"INSERT INTO DeliveryPartners VALUES(null, LAST_INSERT_ID(), '{tipoVeiculo}', '{placa}', {avaliacao.ToString().Replace(",", ".")}, {ativo});";
             db.ExecutarComando(inserir);
         }
 

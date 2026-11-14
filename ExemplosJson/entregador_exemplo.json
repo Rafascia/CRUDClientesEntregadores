@@ -6,5 +6,7 @@
   "UserAdress": "Rua B, 20",
   "UserType": "DeliveryPartner",
   "VehicleType": "Moto",
-  "VehiclePlate": "ABC1D23"
+  "VehicleNumber": "ABC1D23",
+  "Rating": 5,
+  "IsActive": true
 }

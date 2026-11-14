@@ -62,8 +62,9 @@ namespace CRUDClientesEntregadores
             objEntregador.SetPlaca(PlacaEntregador);
             objEntregador.SetTipoVeiculo(TipoVeiculoEntregador);
             objEntregador.SetAtivo(AtivoEntregador);
+            objEntregador.SetAvaliacao(5); //todo entregador novo começa com nota 5, igual ao site
 
-            //3º 
+            //3º
 
             objEntregador.InserirEntregador();
             MostrarDadosEntregadores();
@@ -166,7 +167,8 @@ namespace CRUDClientesEntregadores
                 objEntregador.SetTelefone(usuario.UserTelNumber);
                 objEntregador.SetEndereco(usuario.UserAdress);
                 objEntregador.SetTipoVeiculo(usuario.VehicleType);
-                objEntregador.SetPlaca(usuario.VehiclePlate);
+                objEntregador.SetPlaca(usuario.VehicleNumber);
+                objEntregador.SetAvaliacao(usuario.Rating);
                 objEntregador.SetAtivo(true); //todo entregador novo começa ativo
 
                 //5º salvar no banco e atualizar a tela

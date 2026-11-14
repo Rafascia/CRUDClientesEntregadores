@@ -15,6 +15,7 @@ namespace CRUDClientesEntregadores
         public string UserAdress { get; set; }
         public string UserType { get; set; }
         public string VehicleType { get; set; }
-        public string VehiclePlate { get; set; }
+        public string VehicleNumber { get; set; }
+        public double Rating { get; set; }
     }
 }

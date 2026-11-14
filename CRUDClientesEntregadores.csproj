@@ -123,6 +123,16 @@
     <Compile Include="FrmEntregadores.Designer.cs">
       <DependentUpon>FrmEntregadores.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPedidos.Designer.cs">
+      <DependentUpon>FrmPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportadorPedido.cs" />
+    <Compile Include="ItemPedidoJson.cs" />
+    <Compile Include="Pedido.cs" />
+    <Compile Include="PedidoJson.cs" />
     <Compile Include="FrmProdutos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEntregadores.resx">
       <DependentUpon>FrmEntregadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPedidos.resx">
+      <DependentUpon>FrmPedidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProdutos.resx">
       <DependentUpon>FrmProdutos.cs</DependentUpon>

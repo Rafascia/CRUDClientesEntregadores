@@ -44,5 +44,11 @@ namespace CRUDClientesEntregadores
             FrmProdutos TelaProdutos = new FrmProdutos();
             TelaProdutos.ShowDialog();
         }
+
+        private void pEDIDOSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmPedidos TelaPedidos = new FrmPedidos();
+            TelaPedidos.ShowDialog();
+        }
     }
 }

@@ -32,6 +32,7 @@
             this.cLIENTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eNTREGADORESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pRODUTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pEDIDOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sAIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -44,6 +45,7 @@
             this.cLIENTESToolStripMenuItem,
             this.eNTREGADORESToolStripMenuItem,
             this.pRODUTOSToolStripMenuItem,
+            this.pEDIDOSToolStripMenuItem,
             this.sAIRToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -71,6 +73,13 @@
             this.pRODUTOSToolStripMenuItem.Size = new System.Drawing.Size(114, 29);
             this.pRODUTOSToolStripMenuItem.Text = "PRODUTOS";
             this.pRODUTOSToolStripMenuItem.Click += new System.EventHandler(this.pRODUTOSToolStripMenuItem_Click);
+            //
+            // pEDIDOSToolStripMenuItem
+            //
+            this.pEDIDOSToolStripMenuItem.Name = "pEDIDOSToolStripMenuItem";
+            this.pEDIDOSToolStripMenuItem.Size = new System.Drawing.Size(98, 29);
+            this.pEDIDOSToolStripMenuItem.Text = "PEDIDOS";
+            this.pEDIDOSToolStripMenuItem.Click += new System.EventHandler(this.pEDIDOSToolStripMenuItem_Click);
             //
             // sAIRToolStripMenuItem
             // 
@@ -102,6 +111,7 @@
         private System.Windows.Forms.ToolStripMenuItem cLIENTESToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eNTREGADORESToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pRODUTOSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pEDIDOSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sAIRToolStripMenuItem;
     }
 }
